@@ -197,13 +197,18 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     runs = max(1, args.runs)
 
+    impl_num = 0
     for impl in implementations:
+        impl_num += 1
         names.append(impl.name)
 
         per_run: List[float] = []
         last_code: int = 0
 
-        for _ in range(runs):
+        for run_num in range(1, runs + 1):
+            if args.format == "table":
+                print(f"Running {impl_num}/{len(implementations)} run {run_num}/{runs}", end='\r')
+                
             duration, code, _output = run_impl(impl, file_path)
             per_run.append(duration)
             last_code = code
@@ -221,6 +226,8 @@ def main(argv: Optional[List[str]] = None) -> int:
             avg = sum(warmup_excluded) / len(warmup_excluded)
             times.append(avg)
 
+    if args.format == "table":
+        print()  # Clear progress line
     input_label = os.path.basename(file_path)
     sorted_items = sorted(zip(names, times), key=lambda x: (x[1] == 0.0, x[1]))
 
