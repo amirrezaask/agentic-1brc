@@ -100,6 +100,19 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     implementations: List[Implementation] = [
         
+        # Qwen
+        Implementation(
+            name="go-qwen",
+            cwd="go-qwen",
+            build=["go", "build", "-o", "1brc-go", "main.go"],
+            cmd=["./1brc-go", "{file}"],
+        ),
+        Implementation(
+            name="go-qwen-with-hint",
+            cwd="go-qwen-with-hint",
+            build=["go", "build", "-o", "1brc-go", "main.go"],
+            cmd=["./1brc-go", "{file}"],
+        ),
         # Opus4.5
         Implementation(
             name="go-opus4.5",

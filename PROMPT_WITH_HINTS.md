@@ -92,6 +92,7 @@ Test data files are available in the `data/` directory:
 
 * In case you are generating for golang use go1.24 in go.mod
 * Add the new implementation in run_all.py script as an implementation to be runned in next benchmark.
+* Don't look into other agents implementation at all.
 
 **Good luck! Make it fast! 🚀**
 
