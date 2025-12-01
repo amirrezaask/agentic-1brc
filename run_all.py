@@ -166,6 +166,12 @@ def main(argv: Optional[List[str]] = None) -> int:
             cmd=["./1brc-go", "{file}"],
         ),
         Implementation(
+            name="go-opencode-grok-code-fast",
+            cwd="go-opencode-grok-code-fast",
+            build=["go", "build", "-o", "1brc-go", "main.go"],
+            cmd=["./1brc-go", "{file}"],
+        ),
+        Implementation(
             name="rust-opus4.5-with-hint",
             cwd="rust-opus4.5-with-hint",
             build=["cargo", "build", "--release"],

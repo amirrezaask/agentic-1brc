@@ -58,18 +58,19 @@ python3 run_all.py data/measurements.txt --runs 3
 
 | Implementation | Input | Time (avg) |
 |---|---|---|
-| go-opus4.5-with-hint | medium.txt | 18.4ms |
-| go-opus4.5 | medium.txt | 36.5ms |
-| go-haiku-4.5 | medium.txt | 37.1ms |
-| go-gemini3-with-hint | medium.txt | 41.7ms |
-| go-gemini3 | medium.txt | 58.2ms |
-| go-gpt5.1 | medium.txt | 85.9ms |
-| go-haiku-4.5-with-hint | medium.txt | 107.8ms |
-| go-qwen | medium.txt | 142.0ms |
-| go-qwen-with-hint | medium.txt | 142.3ms |
-| go-gpt5.1-with-hint | medium.txt | 155.7ms |
-| rust-opus4.5-with-hint | medium.txt | 248.5ms |
-| rust-opus-4.5 | medium.txt | 267.2ms |
+| go-opus4.5-with-hint | medium.txt | 38.3ms |
+| go-haiku-4.5 | medium.txt | 39.2ms |
+| go-opus4.5 | medium.txt | 41.5ms |
+| go-gemini3-with-hint | medium.txt | 44.5ms |
+| go-gemini3 | medium.txt | 57.1ms |
+| go-gpt5.1 | medium.txt | 87.5ms |
+| go-opencode-grok-code-fas | t medium.txt | 108.8ms |
+| go-haiku-4.5-with-hint | medium.txt | 120.6ms |
+| go-gpt5.1-with-hint | medium.txt | 157.4ms |
+| go-qwen-with-hint | medium.txt | 168.9ms |
+| rust-opus-4.5 | medium.txt | 246.9ms |
+| rust-opus4.5-with-hint | medium.txt | 266.4ms |
+| go-qwen | medium.txt | 712.5ms |
 
 ---
 *Based on the original [1BRC by Gunnar Morling](https://github.com/gunnarmorling/1brc).*
