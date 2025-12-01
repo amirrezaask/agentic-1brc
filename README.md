@@ -17,6 +17,7 @@ We test two variations for each model:
 
 | Directory                | Model        | Hinted? | Description                        |
 |--------------------------|--------------|---------|------------------------------------|
+| `go-haiku-4.5`          | Haiku 4.5   | ❌      | Standard implementation.           |
 | `go-gemini3`             | Gemini 3     | ❌      | Standard implementation.           |
 | `go-gemini3-with-hint`   | Gemini 3     | ✅      | Prompted to use OS/Kernel features.|
 | `go-opus4.5`             | Opus 4.5     | ❌      | Standard implementation.           |

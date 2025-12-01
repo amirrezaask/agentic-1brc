@@ -100,6 +100,12 @@ def main(argv: Optional[List[str]] = None) -> int:
 
     implementations: List[Implementation] = [
         Implementation(
+            name="go-haiku-4.5",
+            cwd="go-haiku-4.5",
+            build=["go", "build", "-o", "1brc-go", "main.go"],
+            cmd=["./1brc-go", "{file}"],
+        ),
+        Implementation(
             name="go-gpt5.1-with-hint",
             cwd="go-gpt5.1-with-hint",
             build=["go", "build", "-o", "1brc-go", "main.go"],
