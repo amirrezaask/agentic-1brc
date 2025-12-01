@@ -66,19 +66,18 @@ python3 run_all.py data/measurements.txt --runs 3
 
 **Latest Benchmark Run:**
 
-
-Implementation       Input      Time (avg)     
--------------------- ---------- ---------------
-go-haiku-4.5         medium.txt 179.6ms        
-go-opus4.5-with-hint medium.txt 188.8ms        
-go-gemini3           medium.txt 203.1ms        
-go-qwen              medium.txt 263.0ms        
-go-haiku-4.5-with-hint medium.txt 266.6ms        
-go-qwen-with-hint    medium.txt 267.8ms        
-go-gpt5.1-with-hint  medium.txt 292.4ms        
-go-opus4.5           medium.txt 491.5ms        
-go-gpt5.1            medium.txt 554.3ms        
-go-gemini3-with-hint medium.txt 811.4ms        
+| Implementation | Input | Time (avg) |
+|---|---|---|
+| go-opus4.5 | medium.tx | t 177.1ms |
+| go-haiku-4.5 | medium.tx | t 184.8ms |
+| go-gemini3-with-hint | medium.tx | t 184.9ms |
+| go-opus4.5-with-hint | medium.tx | t 189.2ms |
+| go-gemini3 | medium.tx | t 201.9ms |
+| go-gpt5.1 | medium.tx | t 239.2ms |
+| go-qwen | medium.tx | t 247.6ms |
+| go-haiku-4.5-with-hi | nt medium. | txt 250.1ms |
+| go-qwen-with-hint | medium.tx | t 262.5ms |
+| go-gpt5.1-with-hint | medium.tx | t 298.3ms |
 
 ---
 *Based on the original [1BRC by Gunnar Morling](https://github.com/gunnarmorling/1brc).*
