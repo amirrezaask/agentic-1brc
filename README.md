@@ -1,4 +1,4 @@
-# 🏎️ AI 1 Billion Row Challenge Benchmark
+# 🏎️ Agentic 1brc challenge
 
 > **Who writes the fastest Go code?** A face-off between AI models tackling the [One Billion Row Challenge](https://github.com/gunnarmorling/1brc).
 
@@ -58,18 +58,18 @@ python3 run_all.py data/measurements.txt --runs 3
 
 | Implementation | Input | Time (avg) |
 |---|---|---|
-| go-haiku-4.5 | medium.txt | 39.4ms |
-| go-opus4.5 | medium.txt | 41.1ms |
-| go-gemini3-with-hint | medium.txt | 45.2ms |
-| go-opus4.5-with-hint | medium.txt | 47.2ms |
-| go-gemini3 | medium.txt | 57.6ms |
-| go-haiku-4.5-with-hint | medium.txt | 105.0ms |
-| go-gpt5.1 | medium.txt | 106.9ms |
-| go-qwen | medium.txt | 115.3ms |
-| go-qwen-with-hint | medium.txt | 119.4ms |
-| go-gpt5.1-with-hint | medium.txt | 177.4ms |
-| rust-opus4.5-with-hint | medium.txt | 248.7ms |
-| rust-opus-4.5 | medium.txt | 249.3ms |
+| go-opus4.5-with-hint | medium.txt | 18.4ms |
+| go-opus4.5 | medium.txt | 36.5ms |
+| go-haiku-4.5 | medium.txt | 37.1ms |
+| go-gemini3-with-hint | medium.txt | 41.7ms |
+| go-gemini3 | medium.txt | 58.2ms |
+| go-gpt5.1 | medium.txt | 85.9ms |
+| go-haiku-4.5-with-hint | medium.txt | 107.8ms |
+| go-qwen | medium.txt | 142.0ms |
+| go-qwen-with-hint | medium.txt | 142.3ms |
+| go-gpt5.1-with-hint | medium.txt | 155.7ms |
+| rust-opus4.5-with-hint | medium.txt | 248.5ms |
+| rust-opus-4.5 | medium.txt | 267.2ms |
 
 ---
 *Based on the original [1BRC by Gunnar Morling](https://github.com/gunnarmorling/1brc).*
