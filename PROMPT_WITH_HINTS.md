@@ -87,9 +87,11 @@ Test data files are available in the `data/` directory:
 3. Test with small/medium files first
 4. Optimize for the full dataset
 5. Run against `../data/measurements.txt`
+6. Update README.md table with the model you are.
 
 * Note that you can use advance features of operating systems and kernel like MMap or SIMD for CPUs if possible
 
+# RULES
 * In case you are generating for golang use go1.24 in go.mod
 * Add the new implementation in run_all.py script as an implementation to be runned in next benchmark.
 * Don't look into other agents implementation at all.

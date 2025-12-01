@@ -236,4 +236,3 @@ func main() {
 	output.WriteByte('}')
 	fmt.Println(output.String())
 }
-

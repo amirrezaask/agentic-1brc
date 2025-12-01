@@ -99,7 +99,18 @@ def main(argv: Optional[List[str]] = None) -> int:
         return 1
 
     implementations: List[Implementation] = [
-        
+        Implementation(
+            name="go-gpt5.1-with-hint",
+            cwd="go-gpt5.1-with-hint",
+            build=["go", "build", "-o", "1brc-go", "main.go"],
+            cmd=["./1brc-go", "{file}"],
+        ),
+        Implementation(
+            name="go-gpt5.1",
+            cwd="go-gpt5.1",
+            build=["go", "build", "-o", "1brc-go", "main.go"],
+            cmd=["./1brc-go", "{file}"],
+        ),
         # Qwen
         Implementation(
             name="go-qwen",

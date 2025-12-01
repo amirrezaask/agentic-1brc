@@ -87,6 +87,7 @@ Test data files are available in the `data/` directory:
 3. Test with small/medium files first
 4. Optimize for the full dataset
 5. Run against `../data/measurements.txt`
+6. Update README.md table with the model you are.
 
 # RULES
 * In case you are generating for golang use go1.24 in go.mod
