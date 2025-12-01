@@ -156,6 +156,12 @@ def main(argv: Optional[List[str]] = None) -> int:
             build=["go", "build", "-o", "1brc-go", "main.go"],
             cmd=["./1brc-go", "{file}"],
         ),
+        Implementation(
+            name="go-haiku-4.5-with-hint",
+            cwd="go-haiku-4.5-with-hint",
+            build=["go", "build", "-o", "1brc-go", "main.go"],
+            cmd=["./1brc-go", "{file}"],
+        ),
         
     ]
 
@@ -195,7 +201,8 @@ def main(argv: Optional[List[str]] = None) -> int:
     print(sep)
 
     input_label = os.path.basename(file_path)
-    for name, t in zip(names, times):
+    sorted_items = sorted(zip(names, times), key=lambda x: (x[1] == 0.0, x[1]))
+    for name, t in sorted_items:
         pretty = format_duration(t) if t > 0 else "-"
         print(f"{name:20} {input_label:10} {pretty:15}")
 
