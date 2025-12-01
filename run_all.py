@@ -99,18 +99,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         return 1
 
     implementations: List[Implementation] = [
-        Implementation(
-            name="go-gemini3",
-            cwd="go-gemini3",
-            build=["go", "build", "-o", "1brc-go", "main.go"],
-            cmd=["./1brc-go", "{file}"],
-        ),
-        Implementation(
-            name="go-gemini3-with-hint",
-            cwd="go-gemini3-with-hint",
-            build=["go", "build", "-o", "1brc-go", "main.go"],
-            cmd=["./1brc-go", "{file}"],
-        ),
+        
         # Opus4.5
         Implementation(
             name="go-opus4.5",
@@ -124,6 +113,20 @@ def main(argv: Optional[List[str]] = None) -> int:
             build=["go", "build", "-o", "1brc-go", "main.go"],
             cmd=["./1brc-go", "{file}"],
         ),
+        # Gemini 3
+        Implementation(
+            name="go-gemini3",
+            cwd="go-gemini3",
+            build=["go", "build", "-o", "1brc-go", "main.go"],
+            cmd=["./1brc-go", "{file}"],
+        ),
+        Implementation(
+            name="go-gemini3-with-hint",
+            cwd="go-gemini3-with-hint",
+            build=["go", "build", "-o", "1brc-go", "main.go"],
+            cmd=["./1brc-go", "{file}"],
+        ),
+        
     ]
 
     names: List[str] = []
