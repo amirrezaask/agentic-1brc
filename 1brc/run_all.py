@@ -22,6 +22,17 @@ def get_root_dir() -> str:
 
 
 def run_command(args: List[str], cwd: str) -> int:
+    root = get_root_dir()
+    env = os.environ.copy()
+    if "GOCACHE" not in env:
+        cache_dir = os.path.join(root, ".gocache")
+        os.makedirs(cache_dir, exist_ok=True)
+        env["GOCACHE"] = cache_dir
+    if "GOMODCACHE" not in env:
+        mod_cache = os.path.join(root, ".gomodcache")
+        os.makedirs(mod_cache, exist_ok=True)
+        env["GOMODCACHE"] = mod_cache
+
     try:
         result = subprocess.run(
             args,
@@ -29,6 +40,7 @@ def run_command(args: List[str], cwd: str) -> int:
             check=False,
             stdout=subprocess.DEVNULL,
             stderr=subprocess.DEVNULL,
+            env=env,
         )
         return result.returncode
     except OSError as exc:
@@ -118,6 +130,12 @@ def main(argv: Optional[List[str]] = None) -> int:
             cmd=["./1brc-go", "{file}"],
         ),
         Implementation(
+            name="go-gpt5.2-codex",
+            cwd="go-gpt5.2-codex",
+            build=["go", "build", "-o", "1brc-go", "main.go"],
+            cmd=["./1brc-go", "{file}"],
+        ),
+        Implementation(
             name="go-gpt5.1",
             cwd="go-gpt5.1",
             build=["go", "build", "-o", "1brc-go", "main.go"],
@@ -154,6 +172,12 @@ def main(argv: Optional[List[str]] = None) -> int:
             cmd=["./target/release/onebrc", "{file}"],
         ),
         Implementation(
+            name="rust-gpt5.2-codex",
+            cwd="rust-gpt5.2-codex",
+            build=["cargo", "build", "--release"],
+            cmd=["./target/release/onebrc", "{file}"],
+        ),
+        Implementation(
             name="go-gemini3",
             cwd="go-gemini3",
             build=["go", "build", "-o", "1brc-go", "main.go"],
@@ -168,6 +192,12 @@ def main(argv: Optional[List[str]] = None) -> int:
         Implementation(
             name="go-haiku-4.5-with-hint",
             cwd="go-haiku-4.5-with-hint",
+            build=["go", "build", "-o", "1brc-go", "main.go"],
+            cmd=["./1brc-go", "{file}"],
+        ),
+        Implementation(
+            name="go-gpt5.2-codex-with-hint",
+            cwd="go-gpt5.2-codex-with-hint",
             build=["go", "build", "-o", "1brc-go", "main.go"],
             cmd=["./1brc-go", "{file}"],
         ),
@@ -188,6 +218,12 @@ def main(argv: Optional[List[str]] = None) -> int:
             cwd="rust-opus4.5-with-hint",
             build=["cargo", "build", "--release"],
             cmd=["./target/release/onebrc", "{file}"],
+        ),
+        Implementation(
+            name="rust-gpt5.2-codex-with-hint",
+            cwd="rust-gpt5.2-codex-with-hint",
+            build=["cargo", "build", "--release"],
+            cmd=["./target/release/rust-codex-with-hint", "{file}"],
         ),
         
     ]
@@ -232,19 +268,19 @@ def main(argv: Optional[List[str]] = None) -> int:
     sorted_items = sorted(zip(names, times), key=lambda x: (x[1] == 0.0, x[1]))
 
     results = []
-    for name, t in sorted_items:
-        results.append({"name": name, "input": input_label, "time": t})
+    for idx, (name, t) in enumerate(sorted_items, start=1):
+        results.append({"rank": idx, "name": name, "input": input_label, "time": t})
 
     if args.format == "table":
         print()
-        header = f"{'Implementation':25} {'Input':15} {'Time (avg)':15}"
-        sep = f"{'-' * 25:25} {'-' * 15:15} {'-' * 15:15}"
+        header = f"{'Rank':5} {'Implementation':25} {'Input':15} {'Time (avg)':15}"
+        sep = f"{'-' * 5:5} {'-' * 25:25} {'-' * 15:15} {'-' * 15:15}"
         print(header)
         print(sep)
 
         for item in results:
             pretty = format_duration(item["time"]) if item["time"] > 0 else "-"
-            print(f"{item['name']:25} {item['input']:15} {pretty:15}")
+            print(f"{item['rank']:5} {item['name']:25} {item['input']:15} {pretty:15}")
 
         print()
     elif args.format == "json":
@@ -252,7 +288,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         print(json.dumps(results))
     elif args.format == "csv":
         import csv
-        writer = csv.DictWriter(sys.stdout, fieldnames=["name", "input", "time"])
+        writer = csv.DictWriter(sys.stdout, fieldnames=["rank", "name", "input", "time"])
         writer.writeheader()
         writer.writerows(results)
 
@@ -261,5 +297,3 @@ def main(argv: Optional[List[str]] = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
-

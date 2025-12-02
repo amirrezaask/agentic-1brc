@@ -1,0 +1,10 @@
+[package]
+name = "rust_gpt5_2_codex"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "onebrc"
+path = "src/main.rs"
+
+[dependencies]
