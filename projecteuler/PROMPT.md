@@ -203,7 +203,7 @@ func main() {
 5. Create the main entry point to run all solutions
 
 ## Rules
-
+- Always compile the binary with -o runner
 - Do NOT look at other agents' implementations
 - Do NOT use external problem-solving resources or lookup answers
 - Solutions must compute the answer, not hardcode known answers
