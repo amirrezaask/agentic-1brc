@@ -11,18 +11,6 @@ This repository hosts a collection of benchmarks designed to evaluate how well d
 | [1 Billion Row Challenge](./1brc/) | Performance | Process 1B temperature readings as fast as possible |
 | [Project Euler](./projecteuler/) | Reasoning/Algorithm | Solve mathematical and programming problems |
 
-## 🏎️ 1BRC at a Glance
-
-| Rank | Implementation | Time |
-|------|----------------|------|
-| 🥇 | go-gemini3-with-hint | 91.5ms |
-| 🥈 | go-opus4.5-with-hint | 146.2ms |
-| 🥉 | go-opus4.5 | 174.7ms |
-| 4 | go-haiku-4.5 | 195.1ms |
-| 5 | go-gemini3 | 220.6ms |
-
-[View full results →](./1brc/)
-
 ## 📂 Repository Structure
 
 ```
