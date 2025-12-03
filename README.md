@@ -9,7 +9,7 @@ This repository hosts a collection of benchmarks designed to evaluate how well d
 | Benchmark | Category | Description |
 |-----------|----------|-------------|
 | [1 Billion Row Challenge](./1brc/) | Performance | Process 1B temperature readings as fast as possible |
-| *More coming soon...* | | |
+| [Project Euler](./projecteuler/) | Reasoning/Algorithm | Solve mathematical and programming problems |
 
 ## 🏎️ 1BRC at a Glance
 
@@ -29,7 +29,8 @@ This repository hosts a collection of benchmarks designed to evaluate how well d
 agentic-benchmarks/
 ├── README.md           # This file
 ├── 1brc/               # 1 Billion Row Challenge
-└── <future-benchmark>/ # Future benchmarks
+├── projecteuler/       # Project Euler Challenge
+└── ...
 ```
 
 Each benchmark has its own directory with setup instructions, prompts, implementations, and results.
